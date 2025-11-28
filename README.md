@@ -88,6 +88,16 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - W tym samym widoku uruchom chat: przełącz tryb silnika (9 trybów), wyślij wiadomość. Bez klucza OpenAI zobaczysz tryb demo; z kluczem otrzymasz odpowiedź z modelu.
 - Sprawdź, że w razie błędu API pojawia się komunikat edukacyjny zamiast stack trace.
 
+## Etap 6: Founder Radar + Weekly Summary (realizacja)
+- Dodano stronę `Founder Radar` (`/founder-radar`) z formularzem scenariuszy edukacyjnych, lokalnym zapisem (localStorage), filtrami po narracjach i tagach oraz etykietami EDU/DYOR.
+- Dodano stronę `Weekly Summary` (`/weekly-summary`) generującą heurystyczne podsumowanie tygodnia na bazie wpisów founder i statusów narracji (mock), z widokiem sekcji: zmiany narracji, scenariusze tygodnia, ryzyka, obserwacje na kolejny tydzień.
+- Ulepszono styl kart, przyciski i pola (nowoczesne tło, klasy `input`, `btn-*`, `badge`, `pill`) dla spójniejszego UI.
+
+### Testy manualne (Etap 6)
+- `/founder-radar`: dodaj scenariusz z tytułem, narracją, tagami, scenariuszem i ryzykami; upewnij się, że pojawia się na liście i zapisuje się lokalnie (po odświeżeniu nadal widoczny). Przetestuj filtry narracji/tagów.
+- `/weekly-summary`: sprawdź, że wyświetla zakres tygodnia i sekcje podsumowania. Kliknij „Odśwież podsumowanie”, by przeliczyć dane (korzysta z lokalnych wpisów + mock narracji).
+- Strona główna: w sekcji „Raporty i scenariusze” znajdziesz skróty do nowych widoków oraz placeholder AI raportu 7:00.
+
 ### Uruchomienie projektu (dev)
 1. `npm install`
 2. `npm run dev`

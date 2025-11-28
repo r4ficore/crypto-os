@@ -47,6 +47,33 @@ export default function DashboardPage() {
       </section>
 
       <section className="card">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold">Raporty i scenariusze</h2>
+            <p className="text-sm text-slate-400">Szybkie linki do Founder Radar, Weekly Summary i nadchodzącego raportu AI 7:00.</p>
+          </div>
+          <span className="text-[11px] text-yellow-200">Edukacyjne – brak rekomendacji</span>
+        </div>
+        <div className="grid gap-3 md:grid-cols-3 mt-4">
+          <EngineShortcut
+            name="Founder Radar"
+            href="/founder-radar"
+            summary="Dodawaj własne scenariusze edukacyjne, lokalny zapis."
+          />
+          <EngineShortcut
+            name="Weekly Summary"
+            href="/weekly-summary"
+            summary="Heurystyczne podsumowanie tygodnia z narracji + wpisów founder."
+          />
+          <EngineShortcut
+            name="AI Raport 7:00"
+            href="/daily-report"
+            summary="W przygotowaniu: automatyczny raport AI z filtrami FAKE_VOLUME/Benford."
+          />
+        </div>
+      </section>
+
+      <section className="card">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
           <h2 className="text-lg font-semibold">Szybki dostęp do silników</h2>
           <p className="text-xs text-slate-400">Każdy moduł działa w trybie edukacyjnym – bez rekomendacji zakupu/sprzedaży.</p>
