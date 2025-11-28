@@ -7,7 +7,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Używamy lokalnych fontów systemowych, aby podgląd działał bez zewnętrznych zależności (GH Pages/offline). -->
   <style>
-    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 18% 20%, rgba(14, 165, 233, 0.18), transparent 28%),
+        radial-gradient(circle at 80% -5%, rgba(192, 132, 252, 0.12), transparent 30%),
+        linear-gradient(180deg, #020617 0%, #0a0f1f 35%, #0b1328 100%);
+    }
+
+    .card {
+      border: 1px solid rgb(30 41 59);
+      background: rgba(15, 23, 42, 0.6);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
 <body class="h-full">
@@ -18,7 +32,7 @@
     </div>
 
     <!-- Topbar -->
-    <header class="flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800">
+    <header class="flex items-center justify-between px-6 py-4 bg-slate-950/70 border-b border-slate-800 backdrop-blur">
       <div>
         <p class="text-xs uppercase tracking-widest text-emerald-300">Crypto OS Preview</p>
         <h1 class="text-2xl font-semibold">Enigma AI – Crypto OS</h1>
@@ -29,15 +43,15 @@
 
     <div class="flex flex-1 overflow-hidden">
       <!-- Sidebar / Dock -->
-      <aside class="w-72 bg-slate-900 border-r border-slate-800 overflow-y-auto">
-        <div class="px-4 py-3 text-xs uppercase tracking-widest text-slate-400">Silniki</div>
+      <aside class="w-72 bg-slate-950/70 border-r border-slate-800 overflow-y-auto backdrop-blur">
+        <div class="px-4 py-3 text-xs uppercase tracking-widest text-slate-300">Silniki</div>
         <nav class="space-y-2 px-3 pb-6">
           <div class="grid grid-cols-1 gap-2">
-            <a class="block rounded-lg border border-slate-800 bg-slate-950 px-3 py-3 hover:border-emerald-400/60" href="#dashboard">
+            <a class="block rounded-lg border border-slate-800 bg-slate-900/70 px-3 py-3 hover:border-emerald-400/60" href="#dashboard">
               <p class="text-sm font-semibold text-emerald-200">Kokpit</p>
               <p class="text-xs text-slate-400">Widok ogólny rynku i skróty.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#market-intel">
+            <a class="block rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-3 hover:border-emerald-400/60" href="#market-intel">
               <p class="text-sm font-semibold">Market Intelligence Engine</p>
               <p class="text-xs text-slate-400">Szybkie metryki i heurystyka rynku.</p>
             </a>

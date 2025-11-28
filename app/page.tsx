@@ -9,41 +9,46 @@ const todaysInsights = [
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-3">
-        <h1 className="text-2xl font-semibold">Kokpit (Dashboard)</h1>
-        <p className="text-slate-400 text-sm">
-          Edukacyjny przegląd kluczowych metryk rynku i szybki dostęp do 9 silników analitycznych. Żadnych rekomendacji inwestycyjnych.
-        </p>
-      </div>
-
-      <section className="grid gap-4 md:grid-cols-3">
-        <div className="card">
-          <p className="text-sm text-slate-400">Heurystyczny sentyment</p>
-          <p className="text-3xl font-semibold text-emerald-300">Neutralno-byczy</p>
-          <p className="text-xs text-slate-400 mt-2">Ocena edukacyjna na bazie dominacji BTC + ogólnego nastroju. Nie jest rekomendacją.</p>
-        </div>
-        <div className="card">
-          <p className="text-sm text-slate-400">Dominacja BTC (szacunek)</p>
-          <p className="text-3xl font-semibold">52.4%</p>
-          <p className="text-xs text-slate-400 mt-2">Metryka informacyjna – samodzielnie zweryfikuj w ulubionym źródle (DYOR).</p>
-        </div>
-        <div className="card">
-          <p className="text-sm text-slate-400">Global cap (24h)</p>
-          <p className="text-3xl font-semibold">$2.3T</p>
-          <p className="text-xs text-slate-400 mt-2">Dane orientacyjne, służą wyłącznie do nauki interpretacji trendów.</p>
+      <section className="card">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.15em] text-slate-400">Kokpit</p>
+            <h1 className="text-2xl font-semibold mt-1">Enigma AI – Crypto OS</h1>
+            <p className="text-slate-400 text-sm mt-1">
+              Edukacyjny przegląd kluczowych metryk rynku i szybki dostęp do 9 silników analitycznych. Żadnych rekomendacji inwestycyjnych.
+            </p>
+          </div>
+          <div className="card-ghost w-full md:w-80">
+            <p className="text-xs text-slate-400 mb-1">Bezpieczeństwo / DYOR</p>
+            <p className="text-sm text-slate-200">Aplikacja ma charakter wyłącznie edukacyjno-analityczny. Zanim podejmiesz decyzję – wykonaj własny research.</p>
+          </div>
         </div>
       </section>
 
-      <section className="card">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Dzisiejsze spostrzeżenia (edukacyjne)</h2>
-          <span className="text-xs text-yellow-200">Nie stanowi porady inwestycyjnej</span>
+      <section className="grid gap-4 md:grid-cols-3">
+        <MetricCard label="Heurystyczny sentyment" value="Neutralno-byczy" accent="text-emerald-300" note="Ocena edukacyjna na bazie dominacji BTC + nastroju. Nie jest rekomendacją." />
+        <MetricCard label="Dominacja BTC (szacunek)" value="52.4%" note="Metryka informacyjna – zweryfikuj w swoim źródle (DYOR)." />
+        <MetricCard label="Global cap (24h)" value="$2.3T" note="Dane orientacyjne, służą do nauki interpretacji trendów." />
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        <div className="card md:col-span-2">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold">Dzisiejsze spostrzeżenia (edukacyjne)</h2>
+            <span className="text-xs text-yellow-200">Nie stanowi porady inwestycyjnej</span>
+          </div>
+          <ul className="mt-3 space-y-2 list-disc list-inside text-slate-200 text-sm">
+            {todaysInsights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
-        <ul className="mt-3 space-y-2 list-disc list-inside text-slate-200 text-sm">
-          {todaysInsights.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <div className="card h-full">
+          <p className="text-sm text-slate-400">Raport AI 7:00 (status)</p>
+          <p className="text-lg font-semibold mt-1">Przygotowanie automatycznego raportu</p>
+          <p className="text-xs text-slate-400 mt-2">W trakcie budowy – raport generowany z ukrytego promptu deep research, z filtrami FAKE_VOLUME/Benford.</p>
+          <Link href="/daily-report" className="btn-primary mt-3 inline-flex justify-center">Podgląd sekcji</Link>
+        </div>
       </section>
 
       <section className="card">
@@ -68,7 +73,7 @@ export default function DashboardPage() {
           <EngineShortcut
             name="AI Raport 7:00"
             href="/daily-report"
-            summary="W przygotowaniu: automatyczny raport AI z filtrami FAKE_VOLUME/Benford."
+            summary="Automatyczny raport AI z filtrami FAKE_VOLUME/Benford (gdy klucz API)."
           />
         </div>
       </section>
@@ -96,10 +101,23 @@ export default function DashboardPage() {
 
 function EngineShortcut({ name, summary, href }: { name: string; summary: string; href: string }) {
   return (
-    <Link href={href} className="card block hover:border-brand-primary/70 transition">
-      <p className="font-semibold">{name}</p>
-      <p className="text-xs text-slate-400 mt-1">{summary}</p>
-      <p className="text-[11px] text-yellow-200 mt-2">Edukacyjne scenariusze – brak rekomendacji inwestycyjnych.</p>
+    <Link href={href} className="card block hover:border-brand-primary/70 transition relative overflow-hidden">
+      <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-brand-primary/30 via-transparent to-brand-accent/25" aria-hidden />
+      <div className="relative">
+        <p className="font-semibold">{name}</p>
+        <p className="text-xs text-slate-400 mt-1">{summary}</p>
+        <p className="text-[11px] text-yellow-200 mt-2">Edukacyjne scenariusze – brak rekomendacji inwestycyjnych.</p>
+      </div>
     </Link>
+  );
+}
+
+function MetricCard({ label, value, accent, note }: { label: string; value: string; accent?: string; note: string }) {
+  return (
+    <div className="card h-full">
+      <p className="text-sm text-slate-400">{label}</p>
+      <p className={`text-3xl font-semibold mt-1 ${accent ?? ''}`}>{value}</p>
+      <p className="text-xs text-slate-400 mt-2">{note}</p>
+    </div>
   );
 }
