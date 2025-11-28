@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { Topbar } from '@/components/Topbar';
 import { Sidebar } from '@/components/Sidebar';
 import { DisclaimerBanner } from '@/components/DisclaimerBanner';
-
-const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
 export const metadata: Metadata = {
   title: 'Enigma AI – Crypto OS',
@@ -14,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pl" className={inter.className}>
-      <body>
+    <html lang="pl">
+      <body className="font-sans">
         <DisclaimerBanner />
         <div className="min-h-screen flex flex-col">
           <Topbar />
