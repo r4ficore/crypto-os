@@ -72,6 +72,22 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 7. **Etap 6 – Founder Radar + Weekly Summary.** Formularz scenariuszy właściciela (local/mock), generowanie tygodniowego raportu.
 8. **Etap 7 – Dzienny raport AI 7:00 (deep research) – finalizacja.** Implementacja `generateDailyAiReport`, filtry wolumenowe, API cron, UI kokpit + podstrona, instrukcja dodania kluczy API. (Ujęte w planie wcześniej, realizowane w końcówce, by całość zadziałała po dostarczeniu kluczy.)
 
+## Etap 5: AI-Driven Market Scenarios + warstwa chatu (realizacja)
+- Dodano panel `AI-Driven Market Scenarios` z wyborem horyzontu, obszarów obserwacji i generowaniem edukacyjnych scenariuszy (AI) na podstawie LLM.
+- Wprowadzono wspólny komponent `ChatPanel` umożliwiający przełączanie 9 trybów silnika, historię wiadomości i komunikaty EDU/DYOR.
+- Dodano abstrakcję LLM: `lib/llmClient.ts`, mapę promptów `lib/llmPrompts.ts` oraz endpoint `app/api/llm/route.ts` (OpenAI, model `gpt-4o-mini`). Brak klucza → tryb mock/demonstracyjny z komunikatem edukacyjnym.
+- Zaktualizowano `index.html` (podgląd GitHub Pages) o sekcję chatu i scenariuszy AI, aby pokazać nowe UI online bez builda.
+
+### Jak skonfigurować klucz OpenAI (do chatu/scenariuszy)
+1. Utwórz plik `.env.local` w katalogu głównym.
+2. Dodaj zmienną: `OPENAI_API_KEY=twój_klucz`. (Klucz nie jest commitowany; endpoint używa go serwerowo.)
+3. Uruchom `npm run dev` i przetestuj chat/scenariusze. Brak klucza = tryb demo (mockowane odpowiedzi edukacyjne).
+
+### Testy manualne (Etap 5)
+- `/engines/ai-scenarios`: wybierz horyzont (1-3 dni / tygodnie / miesiące), zaznacz obszary obserwacji, kliknij „Wygeneruj scenariusze AI” → powinieneś dostać scenariusze w sekcjach (Możliwy scenariusz, Co obserwować, Potencjalne ryzyka) z komunikatem EDU/DYOR.
+- W tym samym widoku uruchom chat: przełącz tryb silnika (9 trybów), wyślij wiadomość. Bez klucza OpenAI zobaczysz tryb demo; z kluczem otrzymasz odpowiedź z modelu.
+- Sprawdź, że w razie błędu API pojawia się komunikat edukacyjny zamiast stack trace.
+
 ### Uruchomienie projektu (dev)
 1. `npm install`
 2. `npm run dev`
@@ -126,3 +142,5 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - `/engines/on-chain-detective`: dodaj adres do watchlisty, sprawdź, że zapisuje się lokalnie w sesji i wyświetla etykietę DYOR; zapoznaj się z placeholderem whale moves i opisem hooków API.
 - `/engines/defi-navigator`: filtruj po sieci i typie, sprawdź karty protokołów z ryzykami; brak błędów przy pustych filtrach.
 - `/engines/nft-lens`: filtruj po sieci/typie, sprawdź sekcje „Sprawdź” i „Typowe ryzyka”; komunikaty edukacyjne bez rekomendacji.
+
+**ETAP 5 ZROBIONY (AI scenariusze + chat 9 trybów).**

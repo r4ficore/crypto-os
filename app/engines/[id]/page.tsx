@@ -9,6 +9,7 @@ import RiskMasterPanel from '@/components/engines/RiskMaster';
 import OnChainDetectivePanel from '@/components/engines/OnChainDetective';
 import DeFiNavigatorPanel from '@/components/engines/DeFiNavigator';
 import NftLensPanel from '@/components/engines/NftLens';
+import AiScenariosPanel from '@/components/engines/AiScenarios';
 
 interface EnginePageProps {
   params: { id: string };
@@ -39,6 +40,8 @@ export default function EnginePage({ params }: EnginePageProps) {
         return <DeFiNavigatorPanel />;
       case 'nft-lens':
         return <NftLensPanel />;
+      case 'ai-scenarios':
+        return <AiScenariosPanel />;
       default:
         return <PlaceholderModule />;
     }
