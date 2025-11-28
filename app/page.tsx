@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { DailyReportWidget } from '@/components/reports/DailyReportWidget';
 
 const todaysInsights = [
   'Dominacja BTC utrzymuje się w trendzie bocznym – rynek szuka katalizatorów narracji.',
@@ -43,12 +44,7 @@ export default function DashboardPage() {
             ))}
           </ul>
         </div>
-        <div className="card h-full">
-          <p className="text-sm text-slate-400">Raport AI 7:00 (status)</p>
-          <p className="text-lg font-semibold mt-1">Przygotowanie automatycznego raportu</p>
-          <p className="text-xs text-slate-400 mt-2">W trakcie budowy – raport generowany z ukrytego promptu deep research, z filtrami FAKE_VOLUME/Benford.</p>
-          <Link href="/daily-report" className="btn-primary mt-3 inline-flex justify-center">Podgląd sekcji</Link>
-        </div>
+        <DailyReportWidget />
       </section>
 
       <section className="card">

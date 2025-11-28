@@ -36,7 +36,7 @@ export default function ChatPanel({ defaultEngine = 'ai-scenarios' as EngineId }
   };
 
   return (
-    <div className="card space-y-4">
+    <div className="card space-y-4 bg-gradient-to-b from-slate-950/60 to-slate-900/70 border-slate-800/80">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-xs text-slate-400 uppercase tracking-wide">Tryb AI</p>
@@ -51,7 +51,7 @@ export default function ChatPanel({ defaultEngine = 'ai-scenarios' as EngineId }
           <select
             value={engineId}
             onChange={(e) => setEngineId(e.target.value as EngineId)}
-            className="bg-slate-900 border border-slate-700 rounded-md px-2 py-1 text-sm"
+            className="input bg-slate-900/80 border-slate-700 max-w-[220px]"
           >
             {engines
               .filter((e) => e.id !== 'dashboard')
@@ -64,7 +64,7 @@ export default function ChatPanel({ defaultEngine = 'ai-scenarios' as EngineId }
         </div>
       </div>
 
-      <div className="bg-slate-950/70 border border-slate-800 rounded-lg p-3 max-h-[420px] overflow-y-auto space-y-3">
+      <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-3 max-h-[420px] overflow-y-auto space-y-3 shadow-inner">
         {messages.length === 0 && (
           <div className="text-sm text-slate-400">
             Zadaj pytanie w kontekście wybranego silnika. Odpowiedź będzie miała formę scenariuszy i ryzyk (edukacja, nie rekomendacja).
@@ -77,7 +77,7 @@ export default function ChatPanel({ defaultEngine = 'ai-scenarios' as EngineId }
               <span className="text-[10px] text-slate-500">{new Date(msg.timestamp || '').toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
             <div
-              className={`p-3 rounded-lg border text-slate-100 whitespace-pre-wrap ${msg.role === 'user' ? 'border-slate-700 bg-slate-900/70' : 'border-emerald-700/50 bg-emerald-900/20'}`}
+              className={`p-3 rounded-lg border text-slate-100 whitespace-pre-wrap shadow-sm ${msg.role === 'user' ? 'border-slate-700 bg-slate-900/70' : 'border-emerald-700/60 bg-emerald-900/25'} `}
             >
               {msg.content}
             </div>
@@ -90,14 +90,13 @@ export default function ChatPanel({ defaultEngine = 'ai-scenarios' as EngineId }
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Zadaj pytanie w trybie edukacyjnym (np. scenariusze dla rynku, pytania o ryzyka)..."
-          className="w-full rounded-md border border-slate-700 bg-slate-900/70 p-2 text-sm"
-          rows={3}
+          className="input min-h-[110px] bg-slate-900/70"
         />
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row md:items-center gap-3">
           <button
             onClick={sendMessage}
             disabled={loading}
-            className="px-4 py-2 rounded-md bg-brand-primary text-slate-950 font-semibold disabled:opacity-60"
+            className="btn-primary disabled:opacity-60"
           >
             {loading ? 'Ładowanie...' : 'Wyślij edukacyjną odpowiedź'}
           </button>

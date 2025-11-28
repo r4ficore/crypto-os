@@ -93,10 +93,25 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Dodano stronę `Weekly Summary` (`/weekly-summary`) generującą heurystyczne podsumowanie tygodnia na bazie wpisów founder i statusów narracji (mock), z widokiem sekcji: zmiany narracji, scenariusze tygodnia, ryzyka, obserwacje na kolejny tydzień.
 - Ulepszono styl kart, przyciski i pola (nowoczesne tło, klasy `input`, `btn-*`, `badge`, `pill`) dla spójniejszego UI.
 
+## Etap 7: Dzienny raport AI 7:00 (realizacja)
+- Dodano endpoint `GET/POST /api/daily-report` generujący raport z ukrytego promptu deep-research (OpenAI, model `gpt-4o-mini` lub mock), z filtrami FakeVolumeDetector i BenfordFakeVolumeFilter oraz zapisem ostatniego raportu w `data/dailyReports.json`.
+- Utworzono stronę `/daily-report` z pełnym widokiem raportu (Top 5 tokenów po filtrach, Top 48 h Opportunity, narracje do obserwacji, notatki o ryzyku, metodologia) i przyciskiem „Odśwież raport (API/OpenAI)”.
+- Dashboard korzysta z widżetu `DailyReportWidget` (podgląd Top tokena + status), aby łatwo dotrzeć do raportu AI 7:00.
+- Zmodernizowano Chat (dark focus, spójne inputy/btn) oraz zachowano EDU/DYOR messaging w całym UI.
+
 ### Testy manualne (Etap 6)
 - `/founder-radar`: dodaj scenariusz z tytułem, narracją, tagami, scenariuszem i ryzykami; upewnij się, że pojawia się na liście i zapisuje się lokalnie (po odświeżeniu nadal widoczny). Przetestuj filtry narracji/tagów.
 - `/weekly-summary`: sprawdź, że wyświetla zakres tygodnia i sekcje podsumowania. Kliknij „Odśwież podsumowanie”, by przeliczyć dane (korzysta z lokalnych wpisów + mock narracji).
 - Strona główna: w sekcji „Raporty i scenariusze” znajdziesz skróty do nowych widoków oraz placeholder AI raportu 7:00.
+
+### Testy manualne (Etap 7)
+- `/daily-report`: sprawdź, że sekcja Top 5 tokenów ładuje się (mock lub dane API), flagi FAKE_VOLUME/Benford są widoczne, a przycisk „Odśwież raport” zwraca nowy raport lub komunikat edukacyjny przy braku klucza.
+- Strona główna: widżet „Raport AI 7:00” powinien pokazywać top token i link do pełnego raportu (lub stan ładowania).
+- Chat (dowolny engine): zweryfikuj nowy dark focus styling, inputy i zachowanie przy wysyłaniu.
+
+### Harmonogram / OpenAI
+- Raport można wywołać ręcznie przyciskiem w `/daily-report` lub przez żądanie `POST /api/daily-report` (np. cron/uptime ping codziennie o 7:00). Ostatni wynik jest zapisywany w `data/dailyReports.json`.
+- Dodaj w `.env.local` klucz `OPENAI_API_KEY=...` aby aktywować realne wywołanie OpenAI; brak klucza = tryb mock (raport edukacyjny). Endpointy nie zapisują żadnych kluczy po stronie klienta.
 
 ### Uruchomienie projektu (dev)
 1. `npm install`
