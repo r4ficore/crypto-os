@@ -9,6 +9,11 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Przygotowano kokpit (dashboard) z placeholderami metryk, sekcją „Dzisiejsze spostrzeżenia” oraz skrótami do silników.
 - Dodano podstronę „Zastrzeżenia i ryzyka” z jasnymi komunikatami o charakterze edukacyjnym i braku rekomendacji inwestycyjnych.
 
+## Etap 2: Market Intelligence + Narrative Scanner (realizacja)
+- Dodano moduł `Market Intelligence Engine` z realnym poborem metryk (Coingecko global cap, dominacja BTC, indeks Fear & Greed) i heurystyczną oceną sentymentu (edukacyjną, bez rekomendacji).
+- Dodano moduł `Narrative Scanner` z filtrowalnymi statusami narracji (mock na start) i hookiem na przyszłe źródła news/social/on-chain.
+- Ulepszono wygląd (gradientowe tło, karty z efektem blur) dla czytelniejszego, nowszego UI.
+
 ### Proponowany stack
 - **Next.js 14 (App Router) + React + TypeScript** – SSR/ISR, czytelny routing i dobre DX.
 - **Tailwind CSS** – utility-first styling, szybka iteracja.
@@ -78,6 +83,12 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
   - karty metryk (sentyment, dominacja BTC, global cap – poglądowe wartości).
 - Kliknij link „Zastrzeżenia” w topbarze lub bannerze – strona powinna jasno komunikować edukacyjny charakter.
 - W docku przełączaj 9 silników – każda strona `/engines/[id]` wyświetla placeholder modułu i przypomnienia DYOR.
+
+### Testy manualne (Etap 2)
+- Wejdź na `/engines/market-intelligence` i sprawdź, czy metryki ładują się poprawnie (global cap, dominacja BTC, Fear & Greed). W razie niedostępności API zobaczysz komunikat edukacyjny zamiast błędu.
+- Sprawdź heurystyczną ocenę rynku (byczy/neutralny/niedźwiedzi) i listę racjonalizacji – upewnij się, że jest opatrzona komunikatem o charakterze edukacyjnym.
+- Wejdź na `/engines/narrative-scanner`, użyj filtrów statusu (wszystkie/rośnie/stabilna/gaśnie) i zobacz szczegóły „Na co patrzeć”.
+- Zweryfikuj, że wszystkie treści przypominają o DYOR i braku rekomendacji inwestycyjnych.
 
 ### UX jako „system operacyjny”
 - **Główny kokpit**: karty metryk (global cap, BTC dominacja, sentyment), skrót raportu AI 7:00, dzisiejsze spostrzeżenia.

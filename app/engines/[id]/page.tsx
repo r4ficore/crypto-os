@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
-import { engines } from '@/data/engines';
 import Link from 'next/link';
+import { engines } from '@/data/engines';
+import MarketIntelligencePanel from '@/components/engines/MarketIntelligence';
+import NarrativeScannerPanel from '@/components/engines/NarrativeScanner';
 
 interface EnginePageProps {
   params: { id: string };
@@ -13,6 +15,17 @@ export default function EnginePage({ params }: EnginePageProps) {
   const engine = engines.find((item) => item.id === params.id);
   if (!engine) return notFound();
 
+  const renderContent = () => {
+    switch (engine.id) {
+      case 'market-intelligence':
+        return <MarketIntelligencePanel />;
+      case 'narrative-scanner':
+        return <NarrativeScannerPanel />;
+      default:
+        return <PlaceholderModule />;
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -20,17 +33,7 @@ export default function EnginePage({ params }: EnginePageProps) {
         <h1 className="text-2xl font-semibold">{engine.name}</h1>
         <p className="text-sm text-slate-400">{engine.description}</p>
       </div>
-      <div className="card">
-        <h2 className="text-lg font-semibold">Przestrzeń robocza</h2>
-        <p className="text-sm text-slate-400 mt-2">
-          Placeholder modułu. Logika i interfejs zostaną rozbudowane w kolejnych etapach. {educationalNote}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-200">
-          <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Tryb edukacyjny</span>
-          <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Brak rekomendacji inwestycyjnych</span>
-          <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Zawsze DYOR</span>
-        </div>
-      </div>
+      {renderContent()}
       <div className="card bg-slate-900/60 border-dashed border-slate-700">
         <h3 className="font-semibold text-sm">Plan na ten moduł</h3>
         <ul className="list-disc list-inside text-sm text-slate-300 mt-2 space-y-1">
@@ -40,6 +43,22 @@ export default function EnginePage({ params }: EnginePageProps) {
         </ul>
         <p className="text-xs text-slate-500 mt-3">Pełny opis etapów znajdziesz w kokpicie i README.</p>
         <Link href="/" className="text-xs underline mt-2 inline-block">Wróć do kokpitu</Link>
+      </div>
+    </div>
+  );
+}
+
+function PlaceholderModule() {
+  return (
+    <div className="card">
+      <h2 className="text-lg font-semibold">Przestrzeń robocza</h2>
+      <p className="text-sm text-slate-400 mt-2">
+        Placeholder modułu. Logika i interfejs zostaną rozbudowane w kolejnych etapach. {educationalNote}
+      </p>
+      <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-200">
+        <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Tryb edukacyjny</span>
+        <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Brak rekomendacji inwestycyjnych</span>
+        <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">Zawsze DYOR</span>
       </div>
     </div>
   );
