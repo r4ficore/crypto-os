@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { engines } from '@/data/engines';
 import MarketIntelligencePanel from '@/components/engines/MarketIntelligence';
 import NarrativeScannerPanel from '@/components/engines/NarrativeScanner';
+import TokenAnalyzerProPanel from '@/components/engines/TokenAnalyzer';
+import PortfolioArchitectPanel from '@/components/engines/PortfolioArchitect';
+import RiskMasterPanel from '@/components/engines/RiskMaster';
 
 interface EnginePageProps {
   params: { id: string };
@@ -21,6 +24,12 @@ export default function EnginePage({ params }: EnginePageProps) {
         return <MarketIntelligencePanel />;
       case 'narrative-scanner':
         return <NarrativeScannerPanel />;
+      case 'token-analyzer':
+        return <TokenAnalyzerProPanel />;
+      case 'portfolio-architect':
+        return <PortfolioArchitectPanel />;
+      case 'risk-master':
+        return <RiskMasterPanel />;
       default:
         return <PlaceholderModule />;
     }

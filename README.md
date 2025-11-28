@@ -14,6 +14,12 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Dodano moduł `Narrative Scanner` z filtrowalnymi statusami narracji (mock na start) i hookiem na przyszłe źródła news/social/on-chain.
 - Ulepszono wygląd (gradientowe tło, karty z efektem blur) dla czytelniejszego, nowszego UI.
 
+## Etap 3: Token Analyzer Pro + Portfolio Architect + Risk Master (realizacja)
+- Dodano `Token Analyzer Pro` z formularzem token/ticker + wyborem narracji, generującym checklistę tokenomics i ryzyk (tryb edukacyjny, hook na `generateTokenAnalysisSummary`).
+- Dodano `Portfolio Architect` – koszyki procentowe dla stylów defensywny / zbalansowany / agresywny z opisami edukacyjnymi i własnymi polami horyzontu/tolerancji ryzyka.
+- Dodano `Risk Master Engine` – formularz ekspozycji kapitału i pojedynczych projektów, heurystyczne alerty (koncentracja, niska poduszka stable), komunikaty EDU/DYOR.
+- Odświeżono karty (gradient, blur) dla spójniejszego, nowocześniejszego UI.
+
 ### Proponowany stack
 - **Next.js 14 (App Router) + React + TypeScript** – SSR/ISR, czytelny routing i dobre DX.
 - **Tailwind CSS** – utility-first styling, szybka iteracja.
@@ -90,6 +96,11 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Wejdź na `/engines/narrative-scanner`, użyj filtrów statusu (wszystkie/rośnie/stabilna/gaśnie) i zobacz szczegóły „Na co patrzeć”.
 - Zweryfikuj, że wszystkie treści przypominają o DYOR i braku rekomendacji inwestycyjnych.
 
+### Testy manualne (Etap 3)
+- `/engines/token-analyzer`: uzupełnij token + narrację, dodaj notatki; po wygenerowaniu checklisty sprawdź sekcje tokenomics, status narracji i listę ryzyk (etykiety EDU/DYOR).
+- `/engines/portfolio-architect`: przełączaj style (defensywny/zbalansowany/agresywny) i edytuj horyzont/tolerancję; zweryfikuj koszyki procentowe i notatki edukacyjne.
+- `/engines/risk-master`: wprowadź wartości kapitału, stable, ekspozycje na projekty (dodaj kilka pozycji). Sprawdź, czy alerty sygnalizują koncentrację >25%, niską poduszkę stable i wysoki udział krypto w kapitale. Wszystkie komunikaty muszą być edukacyjne.
+
 ### UX jako „system operacyjny”
 - **Główny kokpit**: karty metryk (global cap, BTC dominacja, sentyment), skrót raportu AI 7:00, dzisiejsze spostrzeżenia.
 - **Dock/Sidebar**: 9 engine’ów z ikonami i opisami; pozwala przełączać tryby.
@@ -103,4 +114,4 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Tylko odczyt publicznych API (np. CoinGecko) i OpenAI do generacji tekstu. Brak kluczy tradingowych, brak orderów.
 - Wszystkie treści formułowane jako scenariusze edukacyjne; zero obietnic zysków.
 
-**ETAP 0 ZROBIONY (plan zaktualizowany o raport AI 7:00).**
+**ETAP 3 ZROBIONY (kokpit + Market Intelligence + Narrative Scanner + Token Analyzer Pro + Portfolio Architect + Risk Master).**

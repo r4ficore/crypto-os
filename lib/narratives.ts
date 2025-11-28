@@ -43,6 +43,11 @@ export function getNarratives() {
   return mockNarratives;
 }
 
+// Helper do formularzy – zwraca listę nazw narracji.
+export function narrativesForSelect() {
+  return mockNarratives.map((item) => item.name);
+}
+
 // Hook na przyszłość: integracja ze źródłami news/social, np. API lub webhooks.
 export async function updateNarrativesFromSources() {
   // TODO: podłączyć automatyczny import narracji po dodaniu źródeł.
