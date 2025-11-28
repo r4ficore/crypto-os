@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pl" class="h-full bg-slate-950 text-slate-50">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enigma AI – Crypto OS (Preview)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Używamy lokalnych fontów systemowych, aby podgląd działał bez zewnętrznych zależności (GH Pages/offline). -->
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
+</head>
+<body class="h-full">
+  <div class="flex flex-col h-screen">
+    <!-- Disclaimer banner -->
+    <div class="bg-amber-100 text-amber-900 px-4 py-3 text-sm font-medium shadow-inner">
+      Enigma AI – Crypto OS ma charakter wyłącznie edukacyjno-analityczny i nie stanowi porady inwestycyjnej. Zawsze wykonaj własny research (DYOR). Nie składamy żadnych obietnic wyników ani zysków.
+    </div>
+
+    <!-- Topbar -->
+    <header class="flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-emerald-300">Crypto OS Preview</p>
+        <h1 class="text-2xl font-semibold">Enigma AI – Crypto OS</h1>
+        <p class="text-sm text-slate-300">Edukacyjny kokpit i 9 silników analitycznych – bez rekomendacji inwestycyjnych.</p>
+      </div>
+      <a href="#zastrzezenia" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Zastrzeżenia i ryzyka</a>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Sidebar / Dock -->
+      <aside class="w-72 bg-slate-900 border-r border-slate-800 overflow-y-auto">
+        <div class="px-4 py-3 text-xs uppercase tracking-widest text-slate-400">Silniki</div>
+        <nav class="space-y-2 px-3 pb-6">
+          <div class="grid grid-cols-1 gap-2">
+            <a class="block rounded-lg border border-slate-800 bg-slate-950 px-3 py-3 hover:border-emerald-400/60" href="#dashboard">
+              <p class="text-sm font-semibold text-emerald-200">Kokpit</p>
+              <p class="text-xs text-slate-400">Widok ogólny rynku i skróty.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#market-intel">
+              <p class="text-sm font-semibold">Market Intelligence Engine</p>
+              <p class="text-xs text-slate-400">Szybkie metryki i heurystyka rynku.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#narrative-scanner">
+              <p class="text-sm font-semibold">Narrative Scanner</p>
+              <p class="text-xs text-slate-400">Status głównych narracji.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#token-analyzer">
+              <p class="text-sm font-semibold">Token Analyzer Pro</p>
+              <p class="text-xs text-slate-400">Checklisty tokenomics (edukacyjne).</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#portfolio-architect">
+              <p class="text-sm font-semibold">Portfolio Architect</p>
+              <p class="text-xs text-slate-400">Koszyki procentowe, bez rekomendacji.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#risk-master">
+              <p class="text-sm font-semibold">Risk Master Engine</p>
+              <p class="text-xs text-slate-400">Alerty edukacyjne o ekspozycji.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#onchain-detective">
+              <p class="text-sm font-semibold">On-Chain Detective</p>
+              <p class="text-xs text-slate-400">Adresy do obserwacji, placeholdery.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#defi-navigator">
+              <p class="text-sm font-semibold">DeFi Navigator</p>
+              <p class="text-xs text-slate-400">Katalog edukacyjny protokołów.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#nft-lens">
+              <p class="text-sm font-semibold">NFT & Social Token Lens</p>
+              <p class="text-xs text-slate-400">Typy NFT i ryzyka.</p>
+            </a>
+            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#ai-scenarios">
+              <p class="text-sm font-semibold">AI-Driven Market Scenarios</p>
+              <p class="text-xs text-slate-400">Scenariusze edukacyjne.</p>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main class="flex-1 overflow-y-auto bg-slate-950">
+        <section id="dashboard" class="p-6 space-y-4 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Kokpit (Dashboard)</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+              <p class="text-xs text-slate-400 uppercase">Dominacja BTC</p>
+              <p class="text-2xl font-semibold">~52% (placeholder)</p>
+              <p class="text-sm text-emerald-300 mt-2">Heurystyczna ocena rynku – edukacyjna, nie rekomendacja.</p>
+            </div>
+            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+              <p class="text-xs text-slate-400 uppercase">Globalna kapitalizacja</p>
+              <p class="text-2xl font-semibold">~1.9T USD (placeholder)</p>
+              <p class="text-sm text-slate-300 mt-2">Aktualizacje live w pełnej aplikacji (Next.js).</p>
+            </div>
+            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+              <p class="text-xs text-slate-400 uppercase">Sentiment</p>
+              <p class="text-2xl font-semibold">Neutralny</p>
+              <p class="text-sm text-slate-300 mt-2">Wyświetla indeks Fear & Greed gdy dostępny.</p>
+            </div>
+          </div>
+          <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+            <p class="text-sm font-semibold">Dzisiejsze spostrzeżenia (statyczne preview)</p>
+            <ul class="list-disc pl-5 text-slate-200 text-sm space-y-1 mt-2">
+              <li>Dominacja BTC rośnie – scenariusz edukacyjny: możliwe przesunięcie w kierunku BTC/ETH.</li>
+              <li>Warstwa L2 utrzymuje narrację – obserwuj aktywność TVL i wolumenów.</li>
+              <li>Memecoins z wysokim ryzykiem – DYOR i sprawdź płynność przed działaniem.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="ai-report" class="p-6 space-y-3 border-b border-slate-800">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold">Raport AI 7:00 (preview)</h2>
+            <span class="text-xs text-emerald-300">Automatyczny moduł predykcji – edukacyjny</span>
+          </div>
+          <p class="text-sm text-slate-300">W finalnej wersji raport generowany jest codziennie o 7:00 z wykorzystaniem ukrytego promptu „deep research” (OpenAI), z filtrami FAKE_VOLUME i Benford. Poniżej statyczny podgląd formatowania.</p>
+          <div class="rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-4 space-y-2">
+            <p class="text-sm font-semibold">Top 5 tokenów (przykładowy format)</p>
+            <div class="grid md:grid-cols-5 gap-3 text-xs text-slate-200">
+              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+                <p class="font-semibold">Token A (AAA)</p>
+                <p class="text-emerald-300">+24% • Wolumen 0.9M • LP 80k</p>
+                <p class="text-slate-400 mt-1">Narracja: AI infra. Status newsów: niskie. Risk Score: 3/10.</p>
+              </div>
+              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+                <p class="font-semibold">Token B (BBB)</p>
+                <p class="text-emerald-300">+18% • Wolumen 0.4M • LP 25k</p>
+                <p class="text-slate-400 mt-1">Narracja: DePIN. Status newsów: średni. Risk Score: 4/10.</p>
+              </div>
+              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+                <p class="font-semibold">Token C (CCC)</p>
+                <p class="text-emerald-300">+32% • Wolumen 1.1M • LP 60k</p>
+                <p class="text-slate-400 mt-1">Narracja: Gaming L2. Risk Score: 5/10 (⚠️ fake volume filtr sprawdza).</p>
+              </div>
+              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+                <p class="font-semibold">Token D (DDD)</p>
+                <p class="text-emerald-300">+21% • Wolumen 0.3M • LP 22k</p>
+                <p class="text-slate-400 mt-1">Narracja: RWA. Risk Score: 2/10.</p>
+              </div>
+              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+                <p class="font-semibold">Token E (EEE)</p>
+                <p class="text-emerald-300">+27% • Wolumen 0.6M • LP 30k</p>
+                <p class="text-slate-400 mt-1">Narracja: Privacy. Risk Score: 6/10.</p>
+              </div>
+            </div>
+            <div class="text-sm text-slate-200 space-y-1">
+              <p class="font-semibold">Top 48 h Opportunity (przykład)</p>
+              <p>Dlaczego rynek może tego nie zauważyć? – Niska ekspozycja medialna, rosnące Github commits.</p>
+              <p>Potencjalny trigger w 48 h – ogłoszenie partnerstwa / mainnet release.</p>
+              <p>Narracje do obserwacji – AI infra, DePIN, L2 gaming.</p>
+              <p class="text-amber-300">To jest wyłącznie analiza edukacyjna. Brak rekomendacji inwestycyjnych. DYOR.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="market-intel" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Market Intelligence Engine</h2>
+          <p class="text-sm text-slate-300">Heurystyczna ocena rynku – bazuje na dominacji BTC, zmianie kapitalizacji i indeksie Fear & Greed. Nie jest rekomendacją inwestycyjną.</p>
+        </section>
+        <section id="narrative-scanner" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Narrative Scanner</h2>
+          <p class="text-sm text-slate-300">Statusy narracji (AI, DePIN, L2, gaming, RWA, privacy, infra, meme). Aktualizacje w pełnej aplikacji.</p>
+        </section>
+        <section id="token-analyzer" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Token Analyzer Pro</h2>
+          <p class="text-sm text-slate-300">Checklisty tokenomics, narracja projektu, ryzyka regulacyjne/płynnościowe/scam – edukacyjne, bez rekomendacji.</p>
+        </section>
+        <section id="portfolio-architect" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Portfolio Architect</h2>
+          <p class="text-sm text-slate-300">Koszyki procentowe (defensywny/zbalansowany/agresywny) – bez konkretnych tickerów.</p>
+        </section>
+        <section id="risk-master" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">Risk Master Engine</h2>
+          <p class="text-sm text-slate-300">Alerty edukacyjne: ekspozycja na jeden projekt, niska poduszka w stable, płynność.</p>
+        </section>
+        <section id="onchain-detective" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">On-Chain Detective</h2>
+          <p class="text-sm text-slate-300">Adresy do obserwacji, placeholdery na whale moves i publiczne dane on-chain (read-only).</p>
+        </section>
+        <section id="defi-navigator" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">DeFi Navigator</h2>
+          <p class="text-sm text-slate-300">Katalog edukacyjny protokołów (DEX, lending, LSD, yield) z opisem ryzyk.</p>
+        </section>
+        <section id="nft-lens" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">NFT & Social Token Lens</h2>
+          <p class="text-sm text-slate-300">Typy NFT/social tokens, na co patrzeć: płynność, royalties, team, utility. Typowe ryzyka.</p>
+        </section>
+        <section id="ai-scenarios" class="p-6 border-b border-slate-800">
+          <h2 class="text-xl font-semibold">AI-Driven Market Scenarios</h2>
+          <p class="text-sm text-slate-300">Scenariusze edukacyjne H1/H2 z przypomnieniem DYOR i braku rekomendacji kup/sprzedaj.</p>
+        </section>
+
+        <section id="chat" class="p-6 border-b border-slate-800">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <h2 class="text-xl font-semibold">Chat 9 silników (demo)</h2>
+              <p class="text-sm text-slate-300">W pełnej aplikacji możesz przełączać tryby każdego silnika i zadawać pytania. Odpowiedzi są edukacyjne i zawierają ryzyka + DYOR.</p>
+            </div>
+            <span class="text-xs text-amber-300">Brak rekomendacji inwestycyjnych</span>
+          </div>
+          <div class="mt-3 grid md:grid-cols-2 gap-3">
+            <div class="rounded-lg border border-slate-800 bg-slate-900 p-3 text-sm space-y-2">
+              <p class="text-xs text-emerald-300 uppercase">Użytkownik → Market Intelligence</p>
+              <p>„Jakie scenariusze edukacyjne dla rynku przy dominacji BTC ~52% i neutralnym sentymencie?”</p>
+            </div>
+            <div class="rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-3 text-sm space-y-2">
+              <p class="text-xs text-emerald-300 uppercase">Asystent AI</p>
+              <p class="text-slate-100">Możliwy scenariusz: konsolidacja przy lekkiej przewadze BTC, obserwuj napływy stable i narracje L2. Co obserwować: zmiany dominacji, TVL w L2, indeks F&G. Ryzyka: niska płynność altów, zmienność makro. EDU/DYOR.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="zastrzezenia" class="p-6 bg-slate-900 border-t border-slate-800">
+          <h2 class="text-xl font-semibold">Zastrzeżenia i ryzyka</h2>
+          <ul class="list-disc pl-5 text-sm text-slate-200 space-y-2 mt-2">
+            <li>Enigma AI – Crypto OS jest narzędziem edukacyjno-analitycznym i nie stanowi porady inwestycyjnej.</li>
+            <li>Nie składamy żadnych obietnic wyników ani zysków, brak automatycznego tradingu.</li>
+            <li>Wszystkie scenariusze i predykcje to materiały edukacyjne. Zawsze wykonaj własny research (DYOR).</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
