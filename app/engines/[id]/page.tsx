@@ -6,6 +6,9 @@ import NarrativeScannerPanel from '@/components/engines/NarrativeScanner';
 import TokenAnalyzerProPanel from '@/components/engines/TokenAnalyzer';
 import PortfolioArchitectPanel from '@/components/engines/PortfolioArchitect';
 import RiskMasterPanel from '@/components/engines/RiskMaster';
+import OnChainDetectivePanel from '@/components/engines/OnChainDetective';
+import DeFiNavigatorPanel from '@/components/engines/DeFiNavigator';
+import NftLensPanel from '@/components/engines/NftLens';
 
 interface EnginePageProps {
   params: { id: string };
@@ -30,6 +33,12 @@ export default function EnginePage({ params }: EnginePageProps) {
         return <PortfolioArchitectPanel />;
       case 'risk-master':
         return <RiskMasterPanel />;
+      case 'on-chain-detective':
+        return <OnChainDetectivePanel />;
+      case 'defi-navigator':
+        return <DeFiNavigatorPanel />;
+      case 'nft-lens':
+        return <NftLensPanel />;
       default:
         return <PlaceholderModule />;
     }

@@ -115,3 +115,14 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Wszystkie treści formułowane jako scenariusze edukacyjne; zero obietnic zysków.
 
 **ETAP 3 ZROBIONY (kokpit + Market Intelligence + Narrative Scanner + Token Analyzer Pro + Portfolio Architect + Risk Master).**
+
+## Etap 4: On-Chain Detective + DeFi Navigator + NFT & Social Token Lens (realizacja)
+- Dodano `On-Chain Detective` z sekcją sygnałów/whale moves (placeholdery), lokalną watchlistą adresów i czytelnymi komunikatami EDU/DYOR; zostawiono hook na integrację z publicznymi feedami on-chain.
+- Dodano `DeFi Navigator` – katalog wybranych protokołów z filtrami po sieci/typie, opisami use case i ryzyk (bez rekomendacji APY).
+- Dodano `NFT & Social Token Lens` – kategorie NFT/social tokens z listą „co sprawdzić” i typowymi ryzykami, z filtrami po sieci/typie.
+- Utrzymano nowocześniejszy wygląd kart i sekcji, aby UI było bardziej spójne.
+
+### Testy manualne (Etap 4)
+- `/engines/on-chain-detective`: dodaj adres do watchlisty, sprawdź, że zapisuje się lokalnie w sesji i wyświetla etykietę DYOR; zapoznaj się z placeholderem whale moves i opisem hooków API.
+- `/engines/defi-navigator`: filtruj po sieci i typie, sprawdź karty protokołów z ryzykami; brak błędów przy pustych filtrach.
+- `/engines/nft-lens`: filtruj po sieci/typie, sprawdź sekcje „Sprawdź” i „Typowe ryzyka”; komunikaty edukacyjne bez rekomendacji.
