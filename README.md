@@ -66,6 +66,10 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 2. `npm run dev`
 3. Otwórz `http://localhost:3000` – zobaczysz kokpit, dock 9 silników i stały banner disclaimer.
 
+### Szybki podgląd online (GitHub Pages)
+- Dodano statyczny plik `index.html` (Tailwind z CDN), który odwzorowuje kokpit, dock 9 silników, sekcję zastrzeżeń i przykładowy widget raportu AI 7:00.
+- Wystarczy opublikować repo na GitHub Pages (gałąź `main` → ustaw jako źródło Pages); przeglądarka pokaże `index.html` bez potrzeby uruchamiania builda.
+
 ### Testy manualne (Etap 1)
 - Wejdź na `/` i sprawdź:
   - widoczność bannera ostrzegawczego,
