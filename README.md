@@ -3,6 +3,12 @@
 ## Etap 0: analiza + pełny plan prac (z modułem dziennych raportów AI)
 Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma AI – Crypto OS” w 6–7 iteracyjnych etapach, uwzględniając moduł automatycznych predykcji publikowanych codziennie o 7:00 (raport AI z ukrytym promptem deep-research).
 
+## Etap 1: szkielet UI + warstwa prawna (realizacja)
+- Utworzono projekt Next.js + TypeScript + Tailwind z App Routerem.
+- Dodano globalny layout z topbarem, dockiem 9 silników i stałym bannerem disclaimer.
+- Przygotowano kokpit (dashboard) z placeholderami metryk, sekcją „Dzisiejsze spostrzeżenia” oraz skrótami do silników.
+- Dodano podstronę „Zastrzeżenia i ryzyka” z jasnymi komunikatami o charakterze edukacyjnym i braku rekomendacji inwestycyjnych.
+
 ### Proponowany stack
 - **Next.js 14 (App Router) + React + TypeScript** – SSR/ISR, czytelny routing i dobre DX.
 - **Tailwind CSS** – utility-first styling, szybka iteracja.
@@ -54,6 +60,20 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 6. **Etap 5 – AI-Driven Market Scenarios + warstwa chatu (9 trybów).** Komponent chatu, system prompty, abstrakcja LLM.
 7. **Etap 6 – Founder Radar + Weekly Summary.** Formularz scenariuszy właściciela (local/mock), generowanie tygodniowego raportu.
 8. **Etap 7 – Dzienny raport AI 7:00 (deep research) – finalizacja.** Implementacja `generateDailyAiReport`, filtry wolumenowe, API cron, UI kokpit + podstrona, instrukcja dodania kluczy API. (Ujęte w planie wcześniej, realizowane w końcówce, by całość zadziałała po dostarczeniu kluczy.)
+
+### Uruchomienie projektu (dev)
+1. `npm install`
+2. `npm run dev`
+3. Otwórz `http://localhost:3000` – zobaczysz kokpit, dock 9 silników i stały banner disclaimer.
+
+### Testy manualne (Etap 1)
+- Wejdź na `/` i sprawdź:
+  - widoczność bannera ostrzegawczego,
+  - topbar z nazwą i tagline,
+  - sekcję „Dzisiejsze spostrzeżenia” (statyczne placeholdery),
+  - karty metryk (sentyment, dominacja BTC, global cap – poglądowe wartości).
+- Kliknij link „Zastrzeżenia” w topbarze lub bannerze – strona powinna jasno komunikować edukacyjny charakter.
+- W docku przełączaj 9 silników – każda strona `/engines/[id]` wyświetla placeholder modułu i przypomnienia DYOR.
 
 ### UX jako „system operacyjny”
 - **Główny kokpit**: karty metryk (global cap, BTC dominacja, sentyment), skrót raportu AI 7:00, dzisiejsze spostrzeżenia.
