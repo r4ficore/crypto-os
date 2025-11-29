@@ -14,13 +14,26 @@
         linear-gradient(180deg, #020617 0%, #0a0f1f 35%, #0b1328 100%);
     }
 
-    .card {
-      border: 1px solid rgb(30 41 59);
-      background: rgba(15, 23, 42, 0.6);
-      padding: 1rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(6px);
+    .panel {
+      border: 1px solid rgb(30 41 59 / 0.85);
+      background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.06), transparent 32%), rgba(15, 23, 42, 0.7);
+      padding: 1.25rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px -24px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgb(45 212 191 / 0.45);
+      background: rgb(14 165 233 / 0.08);
+      color: #a5f3fc;
+      font-size: 0.75rem;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -32,58 +45,64 @@
     </div>
 
     <!-- Topbar -->
-    <header class="flex items-center justify-between px-6 py-4 bg-slate-950/70 border-b border-slate-800 backdrop-blur">
-      <div>
-        <p class="text-xs uppercase tracking-widest text-emerald-300">Crypto OS Preview</p>
-        <h1 class="text-2xl font-semibold">Enigma AI – Crypto OS</h1>
-        <p class="text-sm text-slate-300">Edukacyjny kokpit i 9 silników analitycznych – bez rekomendacji inwestycyjnych.</p>
+    <header class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between px-6 py-5 bg-slate-950/80 border-b border-slate-800 backdrop-blur">
+      <div class="space-y-1">
+        <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">Crypto OS Preview</p>
+        <div class="flex items-center gap-3 flex-wrap">
+          <h1 class="text-3xl font-semibold">Enigma AI – Crypto OS</h1>
+          <span class="chip">Edukacyjno-analityczne • DYOR</span>
+        </div>
+        <p class="text-sm text-slate-300">Nowoczesny kokpit, 9 silników analitycznych, scenariusze AI i raport 7:00 – wszystko z warstwą bezpieczeństwa i disclaimera.</p>
       </div>
-      <a href="#zastrzezenia" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Zastrzeżenia i ryzyka</a>
+      <div class="flex items-center gap-3 text-sm">
+        <a href="#daily-report" class="px-3 py-2 rounded-lg bg-emerald-500/10 text-emerald-200 border border-emerald-400/50 hover:bg-emerald-500/20">Raport AI 7:00</a>
+        <a href="#zastrzezenia" class="px-3 py-2 rounded-lg border border-slate-700 hover:border-emerald-400/60 hover:text-emerald-100">Zastrzeżenia i ryzyka</a>
+      </div>
     </header>
 
     <div class="flex flex-1 overflow-hidden">
       <!-- Sidebar / Dock -->
-      <aside class="w-72 bg-slate-950/70 border-r border-slate-800 overflow-y-auto backdrop-blur">
+      <aside class="w-72 bg-slate-950/80 border-r border-slate-800 overflow-y-auto backdrop-blur hidden md:block">
         <div class="px-4 py-3 text-xs uppercase tracking-widest text-slate-300">Silniki</div>
         <nav class="space-y-2 px-3 pb-6">
           <div class="grid grid-cols-1 gap-2">
-            <a class="block rounded-lg border border-slate-800 bg-slate-900/70 px-3 py-3 hover:border-emerald-400/60" href="#dashboard">
+            <a class="block panel px-3 py-3 bg-slate-900/70 border border-emerald-400/40" href="#dashboard">
               <p class="text-sm font-semibold text-emerald-200">Kokpit</p>
               <p class="text-xs text-slate-400">Widok ogólny rynku i skróty.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-3 hover:border-emerald-400/60" href="#market-intel">
+            <a class="block panel px-3 py-3" href="#market-intel">
               <p class="text-sm font-semibold">Market Intelligence Engine</p>
               <p class="text-xs text-slate-400">Szybkie metryki i heurystyka rynku.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#narrative-scanner">
+            <a class="block panel px-3 py-3" href="#narrative-scanner">
               <p class="text-sm font-semibold">Narrative Scanner</p>
               <p class="text-xs text-slate-400">Status głównych narracji.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#token-analyzer">
+            <a class="block panel px-3 py-3" href="#token-analyzer">
               <p class="text-sm font-semibold">Token Analyzer Pro</p>
               <p class="text-xs text-slate-400">Checklisty tokenomics (edukacyjne).</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#portfolio-architect">
+            <a class="block panel px-3 py-3" href="#portfolio-architect">
               <p class="text-sm font-semibold">Portfolio Architect</p>
               <p class="text-xs text-slate-400">Koszyki procentowe, bez rekomendacji.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#risk-master">
+            <a class="block panel px-3 py-3" href="#risk-master">
               <p class="text-sm font-semibold">Risk Master Engine</p>
               <p class="text-xs text-slate-400">Alerty edukacyjne o ekspozycji.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#onchain-detective">
+            <a class="block panel px-3 py-3" href="#onchain-detective">
               <p class="text-sm font-semibold">On-Chain Detective</p>
               <p class="text-xs text-slate-400">Adresy do obserwacji, placeholdery.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#defi-navigator">
+            <a class="block panel px-3 py-3" href="#defi-navigator">
               <p class="text-sm font-semibold">DeFi Navigator</p>
               <p class="text-xs text-slate-400">Katalog edukacyjny protokołów.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#nft-lens">
+            <a class="block panel px-3 py-3" href="#nft-lens">
               <p class="text-sm font-semibold">NFT & Social Token Lens</p>
               <p class="text-xs text-slate-400">Typy NFT i ryzyka.</p>
             </a>
-            <a class="block rounded-lg border border-slate-800 px-3 py-3 hover:border-emerald-400/60" href="#ai-scenarios">
+            <a class="block panel px-3 py-3" href="#ai-scenarios">
               <p class="text-sm font-semibold">AI-Driven Market Scenarios</p>
               <p class="text-xs text-slate-400">Scenariusze edukacyjne.</p>
             </a>
@@ -93,28 +112,41 @@
 
       <!-- Main content -->
       <main class="flex-1 overflow-y-auto bg-slate-950">
-        <section id="dashboard" class="p-6 space-y-4 border-b border-slate-800">
-          <h2 class="text-xl font-semibold">Kokpit (Dashboard)</h2>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+        <section id="dashboard" class="p-6 space-y-6 border-b border-slate-800">
+          <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h2 class="text-2xl font-semibold">Kokpit (Dashboard)</h2>
+              <p class="text-sm text-slate-300">Szybki podgląd rynku, AI raportu 7:00 i skróty do silników. Wszystko edukacyjne, bez rekomendacji.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+              <span class="chip">9 silników</span>
+              <span class="chip">Chat EDU/DYOR</span>
+              <span class="chip">Raport AI 7:00</span>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-3 gap-4">
+            <div class="panel">
               <p class="text-xs text-slate-400 uppercase">Dominacja BTC</p>
               <p class="text-2xl font-semibold">~52% (placeholder)</p>
               <p class="text-sm text-emerald-300 mt-2">Heurystyczna ocena rynku – edukacyjna, nie rekomendacja.</p>
             </div>
-            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+            <div class="panel">
               <p class="text-xs text-slate-400 uppercase">Globalna kapitalizacja</p>
               <p class="text-2xl font-semibold">~1.9T USD (placeholder)</p>
               <p class="text-sm text-slate-300 mt-2">Aktualizacje live w pełnej aplikacji (Next.js).</p>
             </div>
-            <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
+            <div class="panel">
               <p class="text-xs text-slate-400 uppercase">Sentiment</p>
               <p class="text-2xl font-semibold">Neutralny</p>
               <p class="text-sm text-slate-300 mt-2">Wyświetla indeks Fear & Greed gdy dostępny.</p>
             </div>
           </div>
-          <div class="rounded-lg border border-slate-800 bg-slate-900 p-4">
-            <p class="text-sm font-semibold">Dzisiejsze spostrzeżenia (statyczne preview)</p>
-            <ul class="list-disc pl-5 text-slate-200 text-sm space-y-1 mt-2">
+          <div class="panel">
+            <div class="flex items-center justify-between gap-3 flex-wrap">
+              <p class="text-sm font-semibold">Dzisiejsze spostrzeżenia (statyczne preview)</p>
+              <span class="text-xs text-emerald-200">Edukacja • DYOR • brak rekomendacji</span>
+            </div>
+            <ul class="list-disc pl-5 text-slate-200 text-sm space-y-1 mt-3">
               <li>Dominacja BTC rośnie – scenariusz edukacyjny: możliwe przesunięcie w kierunku BTC/ETH.</li>
               <li>Warstwa L2 utrzymuje narrację – obserwuj aktywność TVL i wolumenów.</li>
               <li>Memecoins z wysokim ryzykiem – DYOR i sprawdź płynność przed działaniem.</li>
@@ -122,36 +154,39 @@
           </div>
         </section>
 
-        <section id="ai-report" class="p-6 space-y-3 border-b border-slate-800">
+        <section id="daily-report" class="p-6 space-y-3 border-b border-slate-800">
           <div class="flex items-center justify-between">
             <h2 class="text-xl font-semibold">Raport AI 7:00 (preview)</h2>
             <span class="text-xs text-emerald-300">Automatyczny moduł predykcji – edukacyjny</span>
           </div>
           <p class="text-sm text-slate-300">W finalnej wersji raport generowany jest codziennie o 7:00 z wykorzystaniem ukrytego promptu „deep research” (OpenAI), z filtrami FAKE_VOLUME i Benford. Poniżej statyczny podgląd formatowania.</p>
-          <div class="rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-4 space-y-2">
-            <p class="text-sm font-semibold">Top 5 tokenów (przykładowy format)</p>
+          <div class="panel border-emerald-500/40 bg-emerald-500/5 space-y-3">
+            <div class="flex items-center justify-between gap-3 flex-wrap">
+              <p class="text-sm font-semibold">Top 5 tokenów (przykładowy format)</p>
+              <span class="text-xs text-emerald-200">Filtry: FakeVolumeDetector + Benford</span>
+            </div>
             <div class="grid md:grid-cols-5 gap-3 text-xs text-slate-200">
-              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+              <div class="panel bg-slate-900/80 p-3">
                 <p class="font-semibold">Token A (AAA)</p>
                 <p class="text-emerald-300">+24% • Wolumen 0.9M • LP 80k</p>
                 <p class="text-slate-400 mt-1">Narracja: AI infra. Status newsów: niskie. Risk Score: 3/10.</p>
               </div>
-              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+              <div class="panel bg-slate-900/80 p-3">
                 <p class="font-semibold">Token B (BBB)</p>
                 <p class="text-emerald-300">+18% • Wolumen 0.4M • LP 25k</p>
                 <p class="text-slate-400 mt-1">Narracja: DePIN. Status newsów: średni. Risk Score: 4/10.</p>
               </div>
-              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+              <div class="panel bg-slate-900/80 p-3">
                 <p class="font-semibold">Token C (CCC)</p>
                 <p class="text-emerald-300">+32% • Wolumen 1.1M • LP 60k</p>
                 <p class="text-slate-400 mt-1">Narracja: Gaming L2. Risk Score: 5/10 (⚠️ fake volume filtr sprawdza).</p>
               </div>
-              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+              <div class="panel bg-slate-900/80 p-3">
                 <p class="font-semibold">Token D (DDD)</p>
                 <p class="text-emerald-300">+21% • Wolumen 0.3M • LP 22k</p>
                 <p class="text-slate-400 mt-1">Narracja: RWA. Risk Score: 2/10.</p>
               </div>
-              <div class="p-3 rounded border border-slate-800 bg-slate-900">
+              <div class="panel bg-slate-900/80 p-3">
                 <p class="font-semibold">Token E (EEE)</p>
                 <p class="text-emerald-300">+27% • Wolumen 0.6M • LP 30k</p>
                 <p class="text-slate-400 mt-1">Narracja: Privacy. Risk Score: 6/10.</p>

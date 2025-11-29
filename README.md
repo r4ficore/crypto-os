@@ -122,6 +122,23 @@ Niniejszy dokument opisuje architekturę i plan wdrożenia aplikacji „Enigma A
 - Dodano statyczny plik `index.html` (Tailwind z CDN), który odwzorowuje kokpit, dock 9 silników, sekcję zastrzeżeń i przykładowy widget raportu AI 7:00.
 - Wystarczy opublikować repo na GitHub Pages (gałąź `main` → ustaw jako źródło Pages); przeglądarka pokaże `index.html` bez potrzeby uruchamiania builda.
 
+#### Dlaczego podgląd mógł się nie aktualizować?
+- GH Pages serwuje wyłącznie **statyczny** `index.html`; zmiany w plikach Next.js (folder `app/`) nie są widoczne, dopóki nie zaktualizujesz samego `index.html` i nie wypchniesz commitu na branch publikacyjny.
+- Przeglądarka potrafi keszować plik – zrób hard refresh (Ctrl/Cmd+Shift+R) lub otwórz w trybie prywatnym.
+- Jeśli Pages wskazuje na katalog `docs`, skopiuj `index.html` do `docs/` albo ustaw źródło na root – inaczej serwowany będzie starszy plik.
+
+#### Jak aktualizować statyczny podgląd?
+1. Wprowadź zmiany w `index.html` (to niezależny podgląd, nie jest budowany z Next.js).
+2. Commit + push na branch publikacyjny (np. `main`).
+3. Odswież stronę GH Pages (hard refresh). W wariancie `docs/` skopiuj aktualny `index.html` do `docs/` i wskaż ten katalog jako źródło.
+
+#### Przeniesienie na zewnętrzny hosting (np. home.pl)
+- **Wariant statyczny:** skopiuj `index.html` do katalogu publicznego (np. `/public_html`). Tailwind ładowany jest z CDN, brak dodatkowych buildów.
+- **Wariant pełny (Next.js + API routes):**
+  - Wymaga Node 18+ i możliwości uruchomienia procesu (PM2/CLI). Na klasycznym współdzielonym hostingu bez Node wybierz wariant statyczny.
+  - Kroki: `npm ci && npm run build && npm start` (produkcyjnie) lub `npm run dev` (podgląd). Ustaw `OPENAI_API_KEY` w środowisku, jeśli chcesz realne wywołania OpenAI.
+  - Codzienne odświeżanie raportu AI można zrobić pingując `POST /api/daily-report` cronem (np. home.pl) o 7:00.
+
 ### Testy manualne (Etap 1)
 - Wejdź na `/` i sprawdź:
   - widoczność bannera ostrzegawczego,
