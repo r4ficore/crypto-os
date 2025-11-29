@@ -1,0 +1,95 @@
+[
+  {
+    "generatedAt": "2024-06-10T07:00:00.000Z",
+    "asOfRange": "Ostatnie 48h",
+    "topTokens": [
+      {
+        "name": "NeuraLink AI",
+        "symbol": "NEURA",
+        "priceChangePct": 32,
+        "price": 0.54,
+        "volumeUsd": 1250000,
+        "liquidityUsd": 120000,
+        "link": "https://www.coingecko.com/en/coins/neuralink-ai",
+        "newsStatus": "Wzmianki na CryptoPanic + wczesne wątki na Reddit/Telegram",
+        "riskScore": 6,
+        "recommendationLabel": "✅ Obserwuj",
+        "fakeVolumeFlags": []
+      },
+      {
+        "name": "BaseYield",
+        "symbol": "BYLD",
+        "priceChangePct": 26,
+        "price": 1.21,
+        "volumeUsd": 860000,
+        "liquidityUsd": 78000,
+        "link": "https://www.coingecko.com/en/coins/baseyield",
+        "newsStatus": "Bazowy hype na Twitter/Threads, kilka memów o APY",
+        "riskScore": 7,
+        "recommendationLabel": "🚀 Scenariusz edukacyjny",
+        "fakeVolumeFlags": ["FAKE_VOLUME"]
+      },
+      {
+        "name": "Orbit L2",
+        "symbol": "ORBT",
+        "priceChangePct": 18,
+        "price": 0.33,
+        "volumeUsd": 420000,
+        "liquidityUsd": 52000,
+        "link": "https://www.coingecko.com/en/coins/orbit-l2",
+        "newsStatus": "Mini-AMA na Discord, rosnący GitHub commits",
+        "riskScore": 5,
+        "recommendationLabel": "✅ Obserwuj",
+        "fakeVolumeFlags": []
+      },
+      {
+        "name": "Datavault",
+        "symbol": "DVAULT",
+        "priceChangePct": 44,
+        "price": 0.08,
+        "volumeUsd": 510000,
+        "liquidityUsd": 33000,
+        "link": "https://www.coingecko.com/en/coins/datavault",
+        "newsStatus": "Trenduje na TikTok/YouTube Shorts, niski GitHub ruch",
+        "riskScore": 8,
+        "recommendationLabel": "⚠️ Ignoruj",
+        "fakeVolumeFlags": ["FAKE_VOLUME_BENFORD"]
+      },
+      {
+        "name": "SolanaDrive",
+        "symbol": "DRIVE",
+        "priceChangePct": 21,
+        "price": 2.14,
+        "volumeUsd": 1500000,
+        "liquidityUsd": 210000,
+        "link": "https://www.coingecko.com/en/coins/solanadrive",
+        "newsStatus": "Twitter spaces + partnerstwo z małym L2",
+        "riskScore": 6,
+        "recommendationLabel": "🚀 Scenariusz edukacyjny",
+        "fakeVolumeFlags": []
+      }
+    ],
+    "topOpportunity": {
+      "title": "Top 48 h Opportunity",
+      "thesis": "Momentum AI+DePIN na mniejszych chainach przy niskiej kapitalizacji (poniżej 50M USD).",
+      "triggers": [
+        "Nowe partnerstwo infra + wzmianki w mediach technicznych",
+        "Rosnący TVL na Base/Arbitrum w niszowych protokołach DePIN",
+        "Brak negatywnych flag wolumenowych (FakeVolume/Benford)"
+      ],
+      "narrativeAlignment": "AI infra + DePIN + L2 niche",
+      "caution": "Scenariusz edukacyjny – zweryfikuj ręcznie płynność LP i ryzyka smart contract."
+    },
+    "riskNotes": [
+      "Tokeny z flagą FAKE_VOLUME/Benford wykluczone z shortlisty.",
+      "Brak rekomendacji zakupu – materiał edukacyjno-analityczny.",
+      "Zawsze weryfikuj własnymi źródłami (DYOR)."
+    ],
+    "narrativesToWatch": [
+      "AI + infra tooling",
+      "DePIN na Base/Arbitrum",
+      "Gaming + SocialFi (trend w short-form video)"
+    ],
+    "methodologyNote": "Raport budowany z promptu deep-research (multi-source: news, social, on-chain) + filtry FakeVolumeDetector i BenfordFakeVolumeFilter."
+  }
+]
